@@ -1,0 +1,45 @@
+﻿@model IEnumerable<dkv_LESSON09.Models.Ketqua>
+
+@{
+    ViewBag.Title = "dkvIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("dkvCreate New", "dkvCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Diem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SinhVien.HoSV)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc.TenMH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SinhVien.HoSV)
+        </td>
+        <td>
+            @Html.ActionLink("dkvEdit", "dkvEdit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("dkvDetails", "dkvDetails", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("dkvDelete", "dkvDelete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
